@@ -36,6 +36,11 @@
 
     --radius: 0.5rem;
 
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(46 100% 50%), hsl(45 100% 60%), hsl(44 100% 70%));
+    --gradient-logo: linear-gradient(135deg, hsl(46 100% 55%), hsl(196 100% 55%), hsl(280 100% 70%));
+    --gradient-text: linear-gradient(135deg, hsl(46 100% 60%), hsl(45 95% 65%));
+
     --sidebar-background: 0 0% 98%;
 
     --sidebar-foreground: 240 5.3% 26.1%;
@@ -111,11 +116,33 @@
     @apply bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent;
   }
 
+  .text-gradient-logo {
+    background: var(--gradient-logo);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 200% 200%;
+    animation: gradient-shift 3s ease-in-out infinite;
+  }
+
   .hover-glow {
     @apply transition-all duration-300 hover:shadow-lg hover:shadow-primary/20;
   }
 
   .section-padding {
     @apply px-6 lg:px-8 xl:px-12 2xl:px-16;
+  }
+
+  .font-code {
+    @apply font-mono;
+  }
+}
+
+@keyframes gradient-shift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
   }
 }

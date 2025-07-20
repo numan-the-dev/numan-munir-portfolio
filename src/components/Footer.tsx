@@ -7,13 +7,13 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row justify-between items-center gap-4">
           {/* Logo */}
           <div className="flex items-center">
-            <span className="text-lg font-bold text-primary">
+            <span className="text-lg font-bold text-gradient-logo font-code">
               &lt; Numan Munir /&gt;
             </span>
           </div>
 
           {/* Copyright */}
-          <div className="flex items-center text-muted-foreground text-sm">
+          <div className="flex items-center text-muted-foreground text-sm font-code">
             <span>© 2024 Numan Munir. Made with</span>
             <Heart className="h-4 w-4 mx-1 text-red-500 fill-current" />
             <span>for you</span>

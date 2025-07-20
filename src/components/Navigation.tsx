@@ -21,7 +21,7 @@ const Navigation = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex items-center">
-            <span className="text-xl font-bold text-primary">
+            <span className="text-xl font-bold text-gradient-logo font-code">
               &lt; Numan Munir /&gt;
             </span>
           </div>
@@ -33,7 +33,7 @@ const Navigation = () => {
                 <a
                   key={item.label}
                   href={item.href}
-                  className="text-foreground hover:text-primary transition-colors duration-200 relative group"
+                  className="text-foreground hover:text-primary transition-colors duration-200 relative group font-code text-sm"
                 >
                   {item.label}
                   <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>

@@ -9,13 +9,13 @@ const Hero = () => {
         {/* Left Content */}
         <div className="space-y-6">
           <div className="space-y-4">
-            <h1 className="text-5xl lg:text-6xl font-bold">
+            <h1 className="text-5xl lg:text-6xl font-bold font-code">
               Numan Munir
               <span className="text-4xl lg:text-5xl ml-2">👋</span>
             </h1>
             <div className="flex items-center space-x-4">
               <div className="w-16 h-0.5 bg-primary"></div>
-              <h2 className="text-xl lg:text-2xl text-muted-foreground">
+              <h2 className="text-xl lg:text-2xl text-muted-foreground font-code">
                 Sr.Software Engineer
               </h2>
             </div>
