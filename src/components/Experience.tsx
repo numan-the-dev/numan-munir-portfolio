@@ -1,8 +1,12 @@
+import { useState } from 'react';
 import { Calendar, ChevronRight } from 'lucide-react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
+import { Card, CardContent } from '@/components/ui/card';
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 
 const Experience = () => {
+  const [selectedExperience, setSelectedExperience] = useState<number | null>(null);
+
   const experiences = [
     {
       title: 'Senior Software Engineer (L2)',
@@ -55,11 +59,11 @@ const Experience = () => {
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl font-bold mb-4">
-            Experience 💼
+          <h2 className="text-4xl lg:text-5xl font-bold mb-4 font-code">
+            Experience ⚡
           </h2>
-          <p className="text-xl text-muted-foreground">
-            What I work as
+          <p className="text-xl text-muted-foreground font-code">
+            My Professional Journey
           </p>
         </div>
 
@@ -67,44 +71,76 @@ const Experience = () => {
         <div className="space-y-8">
           {experiences.map((exp, index) => (
             <Card key={index} className="hover-glow">
-              <CardHeader>
-                <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
+              <CardContent className="p-8">
+                <div className="flex items-center justify-between mb-4">
                   <div>
-                    <CardTitle className="text-xl lg:text-2xl">
-                      {exp.title}
-                    </CardTitle>
-                    <h3 className="text-lg text-primary font-semibold mt-1">
-                      {exp.company}
-                    </h3>
+                    <h3 className="text-xl font-semibold font-code">{exp.title}</h3>
+                    <p className="text-primary font-medium font-code">{exp.company}</p>
                   </div>
-                  <div className="flex items-center gap-4">
-                    <div className="flex items-center text-muted-foreground">
-                      <Calendar className="h-4 w-4 mr-2" />
-                      <span className="text-sm">{exp.period}</span>
-                    </div>
-                    <Button variant="outline" size="sm">
-                      View More
-                      <ChevronRight className="h-4 w-4 ml-1" />
-                    </Button>
+                  <div className="flex items-center text-muted-foreground text-sm font-code">
+                    <Calendar className="h-4 w-4 mr-1" />
+                    {exp.period}
                   </div>
                 </div>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground mb-4">
-                  {exp.description}
-                </p>
-                <ul className="space-y-2">
-                  {exp.responsibilities.map((responsibility, respIndex) => (
-                    <li key={respIndex} className="flex items-start">
-                      <ChevronRight className="h-4 w-4 text-primary mt-0.5 mr-2 flex-shrink-0" />
-                      <span>{responsibility}</span>
+                
+                <p className="text-muted-foreground mb-4 font-code">{exp.description}</p>
+                
+                <ul className="space-y-2 mb-6">
+                  {exp.responsibilities.slice(0, 2).map((responsibility, respIndex) => (
+                    <li key={respIndex} className="flex items-start gap-2 text-sm font-code">
+                      <ChevronRight className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                      {responsibility}
                     </li>
                   ))}
                 </ul>
+                
+                <Button 
+                  variant="outline" 
+                  size="sm"
+                  onClick={() => setSelectedExperience(index)}
+                  className="font-code"
+                >
+                  View More
+                </Button>
               </CardContent>
             </Card>
           ))}
         </div>
+
+        {/* Experience Details Modal */}
+        <Dialog open={selectedExperience !== null} onOpenChange={() => setSelectedExperience(null)}>
+          <DialogContent className="max-w-2xl">
+            {selectedExperience !== null && (
+              <>
+                <DialogHeader>
+                  <DialogTitle className="text-2xl font-bold font-code">
+                    {experiences[selectedExperience].title} at {experiences[selectedExperience].company}
+                  </DialogTitle>
+                  <div className="flex items-center text-muted-foreground text-sm font-code">
+                    <Calendar className="h-4 w-4 mr-1" />
+                    {experiences[selectedExperience].period}
+                  </div>
+                </DialogHeader>
+                <div className="space-y-4">
+                  <p className="text-muted-foreground font-code">
+                    {experiences[selectedExperience].description}
+                  </p>
+                  <div>
+                    <h4 className="font-semibold mb-3 font-code">Key Responsibilities:</h4>
+                    <ul className="space-y-2">
+                      {experiences[selectedExperience].responsibilities.map((responsibility, respIndex) => (
+                        <li key={respIndex} className="flex items-start gap-2 font-code">
+                          <ChevronRight className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                          {responsibility}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              </>
+            )}
+          </DialogContent>
+        </Dialog>
       </div>
     </section>
   );

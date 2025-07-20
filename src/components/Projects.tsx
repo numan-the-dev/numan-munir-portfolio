@@ -101,10 +101,10 @@ const Projects = () => {
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl font-bold mb-4">
+          <h2 className="text-4xl lg:text-5xl font-bold mb-4 font-code">
             Projects 🧑🏻‍💻
           </h2>
-          <p className="text-xl text-muted-foreground">
+          <p className="text-xl text-muted-foreground font-code">
             Most Recent Works
           </p>
         </div>
@@ -116,7 +116,7 @@ const Projects = () => {
               <button
                 key={filter}
                 onClick={() => setActiveFilter(filter)}
-                className={`px-6 py-2 rounded-md transition-all duration-200 ${
+                className={`px-6 py-2 rounded-md transition-all duration-200 font-code ${
                   activeFilter === filter
                     ? 'bg-primary text-primary-foreground'
                     : 'text-muted-foreground hover:text-foreground'
@@ -153,8 +153,8 @@ const Projects = () => {
                 </div>
               </div>
               <CardContent className="p-6">
-                <h3 className="font-semibold text-lg mb-2">{project.title}</h3>
-                <span className="text-primary text-sm font-medium">
+                <h3 className="font-semibold text-lg mb-2 font-code">{project.title}</h3>
+                <span className="text-primary text-sm font-medium font-code">
                   {project.category}
                 </span>
               </CardContent>

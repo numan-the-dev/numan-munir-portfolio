@@ -22,15 +22,12 @@ const Education = () => {
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl font-bold mb-4">
-            Qualification 🧑🏻‍🎓
+          <h2 className="text-4xl lg:text-5xl font-bold mb-4 font-code">
+            Education 🎓
           </h2>
-          <p className="text-xl text-muted-foreground mb-8">
-            My Personal Journey 🚗
+          <p className="text-xl text-muted-foreground font-code">
+            My Academic Journey
           </p>
-          <div className="text-lg text-primary font-semibold">
-            Education
-          </div>
         </div>
 
         {/* Education Grid */}
@@ -41,15 +38,15 @@ const Education = () => {
                 <div className="text-6xl mb-4">
                   <GraduationCap className="h-16 w-16 mx-auto text-primary" />
                 </div>
-                <CardTitle className="text-xl">
+                <CardTitle className="text-xl font-code">
                   {edu.degree}
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <h3 className="text-lg font-semibold text-primary mb-2">
+                <h3 className="text-lg font-semibold text-primary mb-2 font-code">
                   {edu.institution}
                 </h3>
-                <div className="flex items-center justify-center text-muted-foreground">
+                <div className="flex items-center justify-center text-muted-foreground font-code">
                   <Calendar className="h-4 w-4 mr-2" />
                   <span>{edu.period}</span>
                 </div>

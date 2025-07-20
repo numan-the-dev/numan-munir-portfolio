@@ -54,13 +54,13 @@ const Contact = () => {
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl font-bold mb-4">
+          <h2 className="text-4xl lg:text-5xl font-bold mb-4 font-code">
             Get In Touch 📩
           </h2>
-          <p className="text-xl text-muted-foreground mb-2">
+          <p className="text-xl text-muted-foreground mb-2 font-code">
             Ready to get started on your project?
           </p>
-          <p className="text-lg text-primary font-semibold">
+          <p className="text-lg text-primary font-semibold font-code">
             Contact me now for a Free consultation.
           </p>
         </div>
@@ -68,7 +68,7 @@ const Contact = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Left Side - Contact Methods */}
           <div>
-            <h3 className="text-2xl font-semibold mb-8">Talk To Me</h3>
+            <h3 className="text-2xl font-semibold mb-8 font-code">Talk To Me</h3>
             <div className="space-y-6">
               {contactMethods.map((method, index) => (
                 <Card key={index} className="hover-glow">
@@ -76,8 +76,8 @@ const Contact = () => {
                     <div className="text-primary mb-4 flex justify-center">
                       {method.icon}
                     </div>
-                    <h4 className="font-semibold text-lg mb-2">{method.title}</h4>
-                    <p className="text-muted-foreground mb-4">{method.value}</p>
+                    <h4 className="font-semibold text-lg mb-2 font-code">{method.title}</h4>
+                    <p className="text-muted-foreground mb-4 font-code">{method.value}</p>
                     <Button variant="outline" size="sm" asChild>
                       <a href={method.link} target="_blank" rel="noopener noreferrer">
                         {method.action}
@@ -92,7 +92,7 @@ const Contact = () => {
 
           {/* Right Side - Contact Form */}
           <div>
-            <h3 className="text-2xl font-semibold mb-8">Write Me Your Message</h3>
+            <h3 className="text-2xl font-semibold mb-8 font-code">Write Me Your Message</h3>
             <Card className="hover-glow">
               <CardContent className="p-6">
                 <form onSubmit={handleSubmit} className="space-y-6">

@@ -59,10 +59,10 @@ const Skills = () => {
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl font-bold mb-4">
-            Services 🛠️
+          <h2 className="text-4xl lg:text-5xl font-bold mb-4 font-code">
+            Skills 🛠️
           </h2>
-          <p className="text-xl text-muted-foreground">
+          <p className="text-xl text-muted-foreground font-code">
             My Technical Level
           </p>
         </div>
@@ -72,7 +72,7 @@ const Skills = () => {
           {skillCategories.map((category, index) => (
             <Card key={index} className="hover-glow">
               <CardHeader>
-                <CardTitle className="text-xl text-center">
+                <CardTitle className="text-xl text-center font-code">
                   {category.title}
                 </CardTitle>
               </CardHeader>
@@ -80,8 +80,8 @@ const Skills = () => {
                 {category.skills.map((skill, skillIndex) => (
                   <div key={skillIndex} className="space-y-2">
                     <div className="flex justify-between items-center">
-                      <h4 className="font-medium">{skill.name}</h4>
-                      <span className={`text-sm font-medium ${getExpertiseColor(skill.expertise)}`}>
+                      <h4 className="font-medium font-code">{skill.name}</h4>
+                      <span className={`text-sm font-medium font-code ${getExpertiseColor(skill.expertise)}`}>
                         {skill.expertise}
                       </span>
                     </div>

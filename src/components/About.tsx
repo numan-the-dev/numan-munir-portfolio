@@ -26,10 +26,10 @@ const About = () => {
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl font-bold mb-4">
+          <h2 className="text-4xl lg:text-5xl font-bold mb-4 font-code">
             About Me
           </h2>
-          <p className="text-xl text-muted-foreground">
+          <p className="text-xl text-muted-foreground font-code">
             My Introduction
           </p>
         </div>
@@ -58,8 +58,8 @@ const About = () => {
                     <div className="text-primary mb-3 flex justify-center">
                       {stat.icon}
                     </div>
-                    <h3 className="font-semibold mb-1">{stat.title}</h3>
-                    <p className="text-sm text-muted-foreground">{stat.value}</p>
+                    <h3 className="font-semibold mb-1 font-code">{stat.title}</h3>
+                    <p className="text-sm text-muted-foreground font-code">{stat.value}</p>
                   </CardContent>
                 </Card>
               ))}
@@ -67,12 +67,12 @@ const About = () => {
 
             {/* Description */}
             <div className="space-y-4">
-              <p className="text-muted-foreground leading-relaxed">
+              <p className="text-muted-foreground leading-relaxed font-code">
                 Senior Software Engineer with 7+ years of experience crafting user-friendly and 
                 design-efficient mobile & web applications. I take pride in turning ideas into 
                 seamless digital experiences, ensuring top-notch performance, usability, and design.
               </p>
-              <p className="text-muted-foreground leading-relaxed">
+              <p className="text-muted-foreground leading-relaxed font-code">
                 I firmly believe that effective communication is the foundation of every successful 
                 project, and I am committed to collaborating closely to bring your vision to life.
               </p>
@@ -80,7 +80,7 @@ const About = () => {
 
             {/* Download CV Button */}
             <div>
-              <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground">
+              <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground font-code">
                 <Download className="h-4 w-4 mr-2" />
                 Download CV
               </Button>
