@@ -18,7 +18,13 @@ const Navigation = () => {
   const toggleTheme = () => {
     const newTheme = isDark ? 'light' : 'dark';
     setIsDark(!isDark);
-    document.documentElement.classList.toggle('dark', !isDark);
+    
+    if (newTheme === 'dark') {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+    
     localStorage.setItem('theme', newTheme);
   };
 
