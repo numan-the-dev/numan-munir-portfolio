@@ -1,31 +1,14 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Menu, X, Sun, Moon } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { useTheme } from 'next-themes';
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isDark, setIsDark] = useState(true);
-
-  useEffect(() => {
-    const savedTheme = localStorage.getItem('theme');
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    const theme = savedTheme || (prefersDark ? 'dark' : 'light');
-    
-    setIsDark(theme === 'dark');
-    document.documentElement.classList.toggle('dark', theme === 'dark');
-  }, []);
+  const { theme, setTheme } = useTheme();
 
   const toggleTheme = () => {
-    const newTheme = isDark ? 'light' : 'dark';
-    setIsDark(!isDark);
-    
-    if (newTheme === 'dark') {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
-    
-    localStorage.setItem('theme', newTheme);
+    setTheme(theme === 'dark' ? 'light' : 'dark');
   };
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
@@ -69,7 +52,7 @@ const Navigation = () => {
               size="icon"
               className="theme-toggle"
             >
-              {isDark ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
+              {theme === 'dark' ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
             </Button>
           </div>
 
@@ -105,7 +88,7 @@ const Navigation = () => {
                   size="sm"
                   className="theme-toggle font-code"
                 >
-                  {isDark ? (
+                  {theme === 'dark' ? (
                     <>
                       <Sun className="h-4 w-4 mr-2" />
                       Light Mode
