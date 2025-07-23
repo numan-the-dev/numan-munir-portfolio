@@ -3,6 +3,17 @@ import { ExternalLink } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 
+// Import project images
+import smileDentalCover from '@/assets/smile-dental-cover.jpg';
+import zuraAphroZodiac from '@/assets/zura-aphrozodiac.jpg';
+import fansaway from '@/assets/fansaway.jpg';
+import carswitch from '@/assets/carswitch.jpg';
+import oneCardPro from '@/assets/one-card-pro.jpg';
+import hostTravelstays from '@/assets/host-travelstays.jpg';
+import staywoDisaster from '@/assets/staywo-disaster.jpg';
+import buttSilkMills from '@/assets/butt-silk-mills.jpg';
+import studentHelpSquad from '@/assets/student-help-squad.jpg';
+
 const Projects = () => {
   const [activeFilter, setActiveFilter] = useState('All');
 
@@ -12,7 +23,7 @@ const Projects = () => {
       title: 'Smile Dental Cover',
       category: 'Mobile App',
       type: 'App',
-      image: '/api/placeholder/300/200',
+      image: smileDentalCover,
       link: 'https://play.google.com/store/apps/details?id=com.smile.members&hl=en',
       description: 'Dental insurance mobile app'
     },
@@ -21,7 +32,7 @@ const Projects = () => {
       title: 'Zura AphroZodiac',
       category: 'Mobile App',
       type: 'App',
-      image: '/api/placeholder/300/200',
+      image: zuraAphroZodiac,
       link: 'https://play.google.com/store/apps/details?id=com.zura&hl=en',
       description: 'Astrology and zodiac app'
     },
@@ -30,7 +41,7 @@ const Projects = () => {
       title: 'Fansaway',
       category: 'Mobile App',
       type: 'App',
-      image: '/api/placeholder/300/200',
+      image: fansaway,
       link: 'https://www.fansaway.com/',
       description: 'Fan engagement platform'
     },
@@ -39,7 +50,7 @@ const Projects = () => {
       title: 'Carswitch',
       category: 'Mobile App',
       type: 'App',
-      image: '/api/placeholder/300/200',
+      image: carswitch,
       link: 'https://apps.apple.com/us/app/carswitch-used-cars-in-uae/id1213284852',
       description: 'Used car marketplace'
     },
@@ -48,7 +59,7 @@ const Projects = () => {
       title: 'One Card Pro',
       category: 'Web App',
       type: 'Web',
-      image: '/api/placeholder/300/200',
+      image: oneCardPro,
       link: 'https://www.onecardpro.com/',
       description: 'Business card management system'
     },
@@ -57,7 +68,7 @@ const Projects = () => {
       title: 'Host - TravelStays and more',
       category: 'Mobile App',
       type: 'App',
-      image: '/api/placeholder/300/200',
+      image: hostTravelstays,
       link: 'https://apps.apple.com/us/app/host-travelstays-and-more/id6468330509',
       description: 'Travel accommodation platform'
     },
@@ -66,7 +77,7 @@ const Projects = () => {
       title: 'Staywo Disaster Management',
       category: 'Web App',
       type: 'Web',
-      image: '/api/placeholder/300/200',
+      image: staywoDisaster,
       link: 'https://www.staywo.com/',
       description: 'Emergency management system'
     },
@@ -75,7 +86,7 @@ const Projects = () => {
       title: 'Butt Silk Mills',
       category: 'Web App',
       type: 'Web',
-      image: '/api/placeholder/300/200',
+      image: buttSilkMills,
       link: 'https://buttsilkmills.com/',
       description: 'Textile industry website'
     },
@@ -84,7 +95,7 @@ const Projects = () => {
       title: 'Student Help Squad',
       category: 'Web App',
       type: 'Web',
-      image: '/api/placeholder/300/200',
+      image: studentHelpSquad,
       link: 'https://studenthelpsquad.co.uk/',
       description: 'Student support platform'
     }
@@ -133,10 +144,12 @@ const Projects = () => {
           {filteredProjects.map((project) => (
             <Card key={project.id} className="group hover-glow overflow-hidden">
               <div className="relative overflow-hidden">
-                <div className="aspect-video bg-secondary flex items-center justify-center">
-                  <div className="text-4xl font-bold text-muted-foreground">
-                    {project.title.split(' ').map(word => word[0]).join('').slice(0, 2)}
-                  </div>
+                <div className="aspect-video overflow-hidden">
+                  <img 
+                    src={project.image} 
+                    alt={project.title}
+                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                  />
                 </div>
                 <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                   <Button 
