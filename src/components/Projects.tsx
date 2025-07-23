@@ -9,15 +9,24 @@ const Projects = () => {
   const projects = [
     {
       id: 1,
-      title: 'Milan Detail Medices',
+      title: 'Smile Dental Cover',
       category: 'Mobile App',
       type: 'App',
       image: '/api/placeholder/300/200',
-      link: 'https://www.milandm.com/',
-      description: 'Healthcare mobile application'
+      link: 'https://play.google.com/store/apps/details?id=com.smile.members&hl=en',
+      description: 'Dental insurance mobile app'
     },
     {
       id: 2,
+      title: 'Zura AphroZodiac',
+      category: 'Mobile App',
+      type: 'App',
+      image: '/api/placeholder/300/200',
+      link: 'https://play.google.com/store/apps/details?id=com.zura&hl=en',
+      description: 'Astrology and zodiac app'
+    },
+    {
+      id: 3,
       title: 'Fansaway',
       category: 'Mobile App',
       type: 'App',
@@ -26,7 +35,7 @@ const Projects = () => {
       description: 'Fan engagement platform'
     },
     {
-      id: 3,
+      id: 4,
       title: 'Carswitch',
       category: 'Mobile App',
       type: 'App',
@@ -35,22 +44,13 @@ const Projects = () => {
       description: 'Used car marketplace'
     },
     {
-      id: 4,
+      id: 5,
       title: 'One Card Pro',
       category: 'Web App',
       type: 'Web',
       image: '/api/placeholder/300/200',
       link: 'https://www.onecardpro.com/',
       description: 'Business card management system'
-    },
-    {
-      id: 5,
-      title: 'Airport Parking Group',
-      category: 'Mobile App',
-      type: 'App',
-      image: '/api/placeholder/300/200',
-      link: 'https://apps.apple.com/us/app/airport-parking-group/id6742752795',
-      description: 'Airport parking booking app'
     },
     {
       id: 6,
