@@ -52,7 +52,7 @@ const Navigation = () => {
               size="icon"
               className="theme-toggle"
             >
-              {theme === 'dark' ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
+              {theme === 'light' ? <Moon className="h-5 w-5" /> : <Sun className="h-5 w-5" />}
             </Button>
           </div>
 
@@ -88,15 +88,15 @@ const Navigation = () => {
                   size="sm"
                   className="theme-toggle font-code"
                 >
-                  {theme === 'dark' ? (
-                    <>
-                      <Sun className="h-4 w-4 mr-2" />
-                      Light Mode
-                    </>
-                  ) : (
+                  {theme === 'light' ? (
                     <>
                       <Moon className="h-4 w-4 mr-2" />
                       Dark Mode
+                    </>
+                  ) : (
+                    <>
+                      <Sun className="h-4 w-4 mr-2" />
+                      Light Mode
                     </>
                   )}
                 </Button>
