@@ -1,52 +1,77 @@
-import { useState } from 'react';
-import { Mail, MessageCircle, Send } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
-import { useToast } from '@/hooks/use-toast';
+import { useState } from "react";
+import { Mail, MessageCircle, Send } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { useToast } from "@/hooks/use-toast";
+import emailjs from "emailjs-com";
+
+const SERVICE_ID = "service_4vdyyb6";
+const TEMPLATE_ID = "template_g6ydvob";
+const USER_ID = "vIZTRGO9PvK-4uQEG";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: ''
+    name: "",
+    email: "",
+    message: "",
   });
   const { toast } = useToast();
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      [name]: value
+      [name]: value,
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission here
-    toast({
-      title: "Message Sent!",
-      description: "Thank you for your message. I'll get back to you soon.",
-    });
-    setFormData({ name: '', email: '', message: '' });
+
+    try {
+      await emailjs.send(
+        SERVICE_ID,
+        TEMPLATE_ID,
+        {
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+          date: new Date().toLocaleString(),
+        },
+        USER_ID
+      );
+      toast({
+        title: "Message Sent!",
+        description: "Thank you for your message. I'll get back to you soon.",
+      });
+      setFormData({ name: "", email: "", message: "" });
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: "Failed to send message. Please try again later.",
+      });
+    }
   };
 
   const contactMethods = [
     {
       icon: <Mail className="h-6 w-6" />,
-      title: 'Email',
-      value: 'numanmunir000@gmail.com',
-      link: 'mailto:numanmunir000@gmail.com',
-      action: 'Write Me'
+      title: "Email",
+      value: "numanmunir.dev@gmail.com",
+      link: "mailto:numanmunir.dev@gmail.com",
+      action: "Write Me",
     },
     {
       icon: <MessageCircle className="h-6 w-6" />,
-      title: 'WhatsApp',
-      value: '(+971) 52 424 64600',
-      link: 'https://api.whatsapp.com/send?phone=+971524264600&text=Hello,%20I%20would%20like%20to%20connect%20with%20you!',
-      action: 'Write Me'
-    }
+      title: "WhatsApp",
+      value: "(+92) 317 085 8627",
+      link: "https://api.whatsapp.com/send?phone=+923170858627&text=Hello,%20I%20am%20interested%20in%20working%20with%20you%20and%20would%20like%20to%20learn%20more%20about%20your%20services.",
+      action: "Contact Me",
+    },
   ];
 
   return (
@@ -68,7 +93,9 @@ const Contact = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Left Side - Contact Methods */}
           <div>
-            <h3 className="text-2xl font-semibold mb-8 font-code">Talk To Me</h3>
+            <h3 className="text-2xl font-semibold mb-8 font-code">
+              Talk To Me
+            </h3>
             <div className="space-y-6">
               {contactMethods.map((method, index) => (
                 <Card key={index} className="hover-glow">
@@ -76,10 +103,18 @@ const Contact = () => {
                     <div className="text-primary mb-4 flex justify-center">
                       {method.icon}
                     </div>
-                    <h4 className="font-semibold text-lg mb-2 font-code">{method.title}</h4>
-                    <p className="text-muted-foreground mb-4 font-code">{method.value}</p>
+                    <h4 className="font-semibold text-lg mb-2 font-code">
+                      {method.title}
+                    </h4>
+                    <p className="text-muted-foreground mb-4 font-code">
+                      {method.value}
+                    </p>
                     <Button variant="outline" size="sm" asChild>
-                      <a href={method.link} target="_blank" rel="noopener noreferrer">
+                      <a
+                        href={method.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
                         {method.action}
                         <Send className="h-4 w-4 ml-2" />
                       </a>
@@ -92,12 +127,17 @@ const Contact = () => {
 
           {/* Right Side - Contact Form */}
           <div>
-            <h3 className="text-2xl font-semibold mb-8 font-code">Write Me Your Message</h3>
+            <h3 className="text-2xl font-semibold mb-8 font-code">
+              Write Me Your Message
+            </h3>
             <Card className="hover-glow">
               <CardContent className="p-6">
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div>
-                    <label htmlFor="name" className="block text-sm font-medium mb-2">
+                    <label
+                      htmlFor="name"
+                      className="block text-sm font-medium mb-2"
+                    >
                       Name
                     </label>
                     <Input
@@ -113,7 +153,10 @@ const Contact = () => {
                   </div>
 
                   <div>
-                    <label htmlFor="email" className="block text-sm font-medium mb-2">
+                    <label
+                      htmlFor="email"
+                      className="block text-sm font-medium mb-2"
+                    >
                       Email
                     </label>
                     <Input
@@ -129,7 +172,10 @@ const Contact = () => {
                   </div>
 
                   <div>
-                    <label htmlFor="message" className="block text-sm font-medium mb-2">
+                    <label
+                      htmlFor="message"
+                      className="block text-sm font-medium mb-2"
+                    >
                       Message
                     </label>
                     <Textarea
@@ -144,9 +190,9 @@ const Contact = () => {
                     />
                   </div>
 
-                  <Button 
-                    type="submit" 
-                    size="lg" 
+                  <Button
+                    type="submit"
+                    size="lg"
                     className="w-full bg-primary hover:bg-primary/90 text-primary-foreground"
                   >
                     <Send className="h-4 w-4 mr-2" />

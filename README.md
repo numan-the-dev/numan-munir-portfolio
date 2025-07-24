@@ -1,4 +1,4 @@
-# Welcome to your Lovable project
+# Numan Munir – Mobile Application Developer | AI & Automation
 
 ## Project info
 

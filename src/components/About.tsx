@@ -1,24 +1,24 @@
-import { Download, Award, CheckCircle, Clock } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent } from '@/components/ui/card';
+import { Download, Award, CheckCircle, Clock } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
 
 const About = () => {
   const stats = [
     {
       icon: <Award className="h-8 w-8" />,
-      title: 'Experience',
-      value: '7 Year Working'
+      title: "Experience",
+      value: "Over 3 Years Working",
     },
     {
       icon: <CheckCircle className="h-8 w-8" />,
-      title: 'Completed',
-      value: '60 + Projects'
+      title: "Completed",
+      value: "30 + Projects",
     },
     {
       icon: <Clock className="h-8 w-8" />,
-      title: 'Support',
-      value: 'Online 24/7'
-    }
+      title: "Support",
+      value: "Online 24/7",
+    },
   ];
 
   return (
@@ -58,8 +58,12 @@ const About = () => {
                     <div className="text-primary mb-3 flex justify-center">
                       {stat.icon}
                     </div>
-                    <h3 className="font-semibold mb-1 font-code">{stat.title}</h3>
-                    <p className="text-sm text-muted-foreground font-code">{stat.value}</p>
+                    <h3 className="font-semibold mb-1 font-code">
+                      {stat.title}
+                    </h3>
+                    <p className="text-sm text-muted-foreground font-code">
+                      {stat.value}
+                    </p>
                   </CardContent>
                 </Card>
               ))}
@@ -68,22 +72,35 @@ const About = () => {
             {/* Description */}
             <div className="space-y-4">
               <p className="text-muted-foreground leading-relaxed font-code">
-                Senior Software Engineer with 7+ years of experience crafting user-friendly and 
-                design-efficient mobile & web applications. I take pride in turning ideas into 
-                seamless digital experiences, ensuring top-notch performance, usability, and design.
+                Mobile Application Developer with 3+ years of experience
+                delivering scalable, high-quality solutions for global clients.
+                Skilled in React Native, modern web technologies, API
+                integrations, and automation testing.
               </p>
               <p className="text-muted-foreground leading-relaxed font-code">
-                I firmly believe that effective communication is the foundation of every successful 
-                project, and I am committed to collaborating closely to bring your vision to life.
+                I enjoy solving real-world problems through clean code and smart
+                architecture, and thrive in collaborative environments. I’m
+                passionate about leveraging emerging technologies, especially
+                AI, to create innovative products that drive business success.
               </p>
             </div>
 
             {/* Download CV Button */}
             <div>
-              <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground font-code">
-                <Download className="h-4 w-4 mr-2" />
-                Download CV
-              </Button>
+              <a
+                href="/Numan-Munir-Resume.pdf"
+                download
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Button
+                  size="lg"
+                  className="bg-primary hover:bg-primary/90 text-primary-foreground font-code"
+                >
+                  <Download className="h-4 w-4 mr-2" />
+                  Download CV
+                </Button>
+              </a>
             </div>
           </div>
         </div>

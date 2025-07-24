@@ -1,26 +1,26 @@
-import { useState } from 'react';
-import { Menu, X, Sun, Moon } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { useTheme } from 'next-themes';
+import { useState } from "react";
+import { Menu, X, Sun, Moon } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { useTheme } from "next-themes";
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { theme, setTheme } = useTheme();
 
   const toggleTheme = () => {
-    setTheme(theme === 'dark' ? 'light' : 'dark');
+    setTheme(theme === "dark" ? "light" : "dark");
   };
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
   const navItems = [
-    { label: 'Home', href: '#home' },
-    { label: 'Projects', href: '#projects' },
-    { label: 'Services', href: '#services' },
-    { label: 'Skills', href: '#skills' },
-    { label: 'Experience', href: '#experience' },
-    { label: 'About', href: '#about' },
-    { label: 'Contact Me', href: '#contact' }
+    { label: "Home", href: "#home" },
+    { label: "Projects", href: "#projects" },
+    { label: "Services", href: "#services" },
+    { label: "Skills", href: "#skills" },
+    { label: "Experience", href: "#experience" },
+    { label: "About", href: "#about" },
+    { label: "Contact Me", href: "#contact" },
   ];
 
   return (
@@ -29,8 +29,11 @@ const Navigation = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex items-center">
-            <span className="text-xl font-bold text-gradient-logo font-code">
-              &lt; Numan Munir /&gt;
+            <span
+              className="text-xl font-bold text-gradient-logo font-code"
+              aria-label="Mobile Application Developer | AI & Automation"
+            >
+              &lt;Numan Munir/&gt;
             </span>
           </div>
 
@@ -52,7 +55,11 @@ const Navigation = () => {
               size="icon"
               className="theme-toggle"
             >
-              {theme === 'light' ? <Moon className="h-5 w-5" /> : <Sun className="h-5 w-5" />}
+              {theme === "light" ? (
+                <Moon className="h-5 w-5" />
+              ) : (
+                <Sun className="h-5 w-5" />
+              )}
             </Button>
           </div>
 
@@ -88,7 +95,7 @@ const Navigation = () => {
                   size="sm"
                   className="theme-toggle font-code"
                 >
-                  {theme === 'light' ? (
+                  {theme === "light" ? (
                     <>
                       <Moon className="h-4 w-4 mr-2" />
                       Dark Mode

@@ -1,8 +1,14 @@
-import { useState } from 'react';
-import { Code, Smartphone, Globe, ArrowRight, X } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent } from '@/components/ui/card';
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
+import { useState } from "react";
+import { Code, Smartphone, Globe, ArrowRight, X } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogClose,
+} from "@/components/ui/dialog";
 
 const Services = () => {
   const [selectedService, setSelectedService] = useState<number | null>(null);
@@ -11,45 +17,46 @@ const Services = () => {
     {
       id: 1,
       icon: <Smartphone className="h-8 w-8" />,
-      title: 'Mobile App Development',
-      description: 'I develop user interfaces and ux experiences for mobile applications.',
+      title: "Mobile App Development",
+      description:
+        "I develop user interfaces and ux experiences for mobile applications.",
       features: [
-        'React Native Development',
-        'iOS App Development',
-        'Android App Development',
-        'Cross-platform Solutions',
-        'App Store Deployment',
-        'Performance Optimization'
-      ]
+        "React Native Development",
+        "iOS App Development",
+        "Android App Development",
+        "Cross-platform Solutions",
+        "App Store Deployment",
+        "Performance Optimization",
+      ],
     },
     {
       id: 2,
       icon: <Globe className="h-8 w-8" />,
-      title: 'Web Development',
-      description: 'I create and develop user interfaces for web applications.',
+      title: "Web Development",
+      description: "I create and develop user interfaces for web applications.",
       features: [
-        'Frontend Development',
-        'Responsive Design',
-        'React & TypeScript',
-        'Modern UI/UX',
-        'SEO Optimization',
-        'Performance Tuning'
-      ]
+        "Frontend Development",
+        "Responsive Design",
+        "React & TypeScript",
+        "Modern UI/UX",
+        "SEO Optimization",
+        "Performance Tuning",
+      ],
     },
     {
       id: 3,
       icon: <Code className="h-8 w-8" />,
-      title: 'Backend Development',
-      description: 'I develop backend services and APIs for applications.',
+      title: "Backend Development",
+      description: "I develop backend services and APIs for applications.",
       features: [
-        'API Development',
-        'Database Design',
-        'Server Architecture',
-        'Laravel & Node.js',
-        'Cloud Integration',
-        'Security Implementation'
-      ]
-    }
+        "API Development",
+        "Database Design",
+        "Server Architecture",
+        "Laravel & Node.js",
+        "Cloud Integration",
+        "Security Implementation",
+      ],
+    },
   ];
 
   return (
@@ -93,29 +100,56 @@ const Services = () => {
         </div>
 
         {/* Service Details Modal */}
-        <Dialog open={selectedService !== null} onOpenChange={() => setSelectedService(null)}>
+        <Dialog
+          open={selectedService !== null}
+          onOpenChange={(open) => {
+            console.log("Dialog open state:", open);
+            if (!open) setSelectedService(null);
+          }}
+        >
           <DialogContent className="max-w-lg">
             {selectedService && (
               <>
                 <DialogHeader>
                   <DialogTitle className="text-2xl font-bold font-code flex items-center gap-3">
-                    {services.find(s => s.id === selectedService)?.icon}
-                    {services.find(s => s.id === selectedService)?.title}
+                    {services.find((s) => s.id === selectedService)?.icon}
+                    {services.find((s) => s.id === selectedService)?.title}
                   </DialogTitle>
                 </DialogHeader>
+                <DialogClose asChild>
+                  <button
+                    autoFocus
+                    className="absolute right-4 top-4 flex items-center justify-center w-10 h-10 p-2 rounded-full opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none border-2 border-orange-400 shadow-[0_0_0_4px_rgba(251,191,36,0.3)]"
+                    onClick={() => setSelectedService(null)}
+                    aria-label="Close"
+                  >
+                    <X className="h-5 w-5" />
+                    <span className="sr-only">Close</span>
+                  </button>
+                </DialogClose>
                 <div className="space-y-4">
                   <p className="text-muted-foreground font-code">
-                    {services.find(s => s.id === selectedService)?.description}
+                    {
+                      services.find((s) => s.id === selectedService)
+                        ?.description
+                    }
                   </p>
                   <div>
-                    <h4 className="font-semibold mb-3 font-code">What I provide:</h4>
+                    <h4 className="font-semibold mb-3 font-code">
+                      What I provide:
+                    </h4>
                     <ul className="space-y-2">
-                      {services.find(s => s.id === selectedService)?.features.map((feature, index) => (
-                        <li key={index} className="flex items-center gap-2 font-code">
-                          <div className="w-2 h-2 bg-primary rounded-full"></div>
-                          {feature}
-                        </li>
-                      ))}
+                      {services
+                        .find((s) => s.id === selectedService)
+                        ?.features.map((feature, index) => (
+                          <li
+                            key={index}
+                            className="flex items-center gap-2 font-code"
+                          >
+                            <div className="w-2 h-2 bg-primary rounded-full"></div>
+                            {feature}
+                          </li>
+                        ))}
                     </ul>
                   </div>
                 </div>

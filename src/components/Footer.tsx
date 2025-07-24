@@ -1,4 +1,6 @@
-import { Heart } from 'lucide-react';
+import { Heart } from "lucide-react";
+import { Github, Linkedin } from "lucide-react";
+import SocialBar from "./SocialBar";
 
 const Footer = () => {
   return (
@@ -7,41 +9,18 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row justify-between items-center gap-4">
           {/* Logo */}
           <div className="flex items-center">
-            <span className="text-lg font-bold text-gradient-logo font-code">
-              &lt; Numan Munir /&gt;
+            <span
+              className="text-lg font-bold text-gradient-logo font-code"
+              aria-label="Mobile Application Developer | AI & Automation"
+            >
+              &lt;Numan Munir/&gt;
             </span>
           </div>
 
           {/* Copyright */}
           <div className="flex items-center text-muted-foreground text-sm font-code">
-            <span>© 2024 Numan Munir. Made with</span>
-            <Heart className="h-4 w-4 mx-1 text-red-500 fill-current" />
-            <span>for you</span>
-          </div>
-
-          {/* Social Links */}
-          <div className="flex space-x-4">
-            <a 
-              href="#" 
-              className="text-muted-foreground hover:text-primary transition-colors duration-200"
-              aria-label="LinkedIn"
-            >
-              <div className="w-5 h-5 bg-current rounded"></div>
-            </a>
-            <a 
-              href="#" 
-              className="text-muted-foreground hover:text-primary transition-colors duration-200"
-              aria-label="GitHub"
-            >
-              <div className="w-5 h-5 bg-current rounded"></div>
-            </a>
-            <a 
-              href="#" 
-              className="text-muted-foreground hover:text-primary transition-colors duration-200"
-              aria-label="Twitter"
-            >
-              <div className="w-5 h-5 bg-current rounded"></div>
-            </a>
+            <span>© {new Date().getFullYear()} Numan Munir.</span>
+            <SocialBar />
           </div>
         </div>
       </div>

@@ -1,56 +1,55 @@
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Progress } from '@/components/ui/progress';
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Progress } from "@/components/ui/progress";
 
 const Skills = () => {
   const skillCategories = [
     {
-      title: 'Mobile Development',
+      title: "Mobile Development",
       skills: [
-        { name: 'React Native', level: 95, expertise: 'Expert' },
-        { name: 'Expo', level: 95, expertise: 'Expert' },
-        { name: 'IOS', level: 90, expertise: 'Expert' },
-        { name: 'Android', level: 90, expertise: 'Expert' }
-      ]
+        { name: "React Native", level: 95, expertise: "Expert" },
+        { name: "Expo", level: 95, expertise: "Expert" },
+        { name: "IOS", level: 90, expertise: "Expert" },
+        { name: "Android", level: 90, expertise: "Expert" },
+      ],
     },
     {
-      title: 'Backend Development',
+      title: "Backend Development",
       skills: [
-        { name: 'Python', level: 70, expertise: 'Intermediate' },
-        { name: 'Laravel', level: 95, expertise: 'Expert' },
-        { name: 'Node.js', level: 90, expertise: 'Expert' },
-        { name: 'MySQL', level: 85, expertise: 'Expert' },
-        { name: 'GitLab', level: 90, expertise: 'Expert' },
-        { name: 'VS Code', level: 95, expertise: 'Expert' },
-        { name: 'GitHub', level: 90, expertise: 'Expert' },
-        { name: 'MongoDB', level: 85, expertise: 'Expert' }
-      ]
+        { name: "Python", level: 30, expertise: "Basic" },
+        { name: "Laravel", level: 30, expertise: "Basic" },
+        { name: "Node.js", level: 50, expertise: "Intermediate" },
+        { name: "MySQL", level: 30, expertise: "Basic" },
+        { name: "VS Code", level: 30, expertise: "Basic" },
+        { name: "GitHub", level: 90, expertise: "Expert" },
+        { name: "MongoDB", level: 30, expertise: "Basic" },
+      ],
     },
     {
-      title: 'Frontend Development',
+      title: "Frontend Development",
       skills: [
-        { name: 'HTML', level: 60, expertise: 'Basic' },
-        { name: 'CSS', level: 80, expertise: 'Advanced' },
-        { name: 'JavaScript', level: 75, expertise: 'Intermediate' },
-        { name: 'TypeScript', level: 60, expertise: 'Basic' },
-        { name: 'Bootstrap', level: 70, expertise: 'Intermediate' },
-        { name: 'React', level: 60, expertise: 'Basic' },
-        { name: 'Tailwind CSS', level: 60, expertise: 'Basic' }
-      ]
-    }
+        { name: "HTML", level: 60, expertise: "Basic" },
+        { name: "CSS", level: 80, expertise: "Advanced" },
+        { name: "JavaScript", level: 75, expertise: "Intermediate" },
+        { name: "TypeScript", level: 60, expertise: "Basic" },
+        { name: "Bootstrap", level: 70, expertise: "Intermediate" },
+        { name: "React", level: 60, expertise: "Basic" },
+        { name: "Tailwind CSS", level: 60, expertise: "Basic" },
+      ],
+    },
   ];
 
   const getExpertiseColor = (expertise: string) => {
     switch (expertise) {
-      case 'Expert':
-        return 'text-green-400';
-      case 'Advanced':
-        return 'text-blue-400';
-      case 'Intermediate':
-        return 'text-yellow-400';
-      case 'Basic':
-        return 'text-orange-400';
+      case "Expert":
+        return "text-green-400";
+      case "Advanced":
+        return "text-blue-400";
+      case "Intermediate":
+        return "text-yellow-400";
+      case "Basic":
+        return "text-orange-400";
       default:
-        return 'text-muted-foreground';
+        return "text-muted-foreground";
     }
   };
 
@@ -81,14 +80,15 @@ const Skills = () => {
                   <div key={skillIndex} className="space-y-2">
                     <div className="flex justify-between items-center">
                       <h4 className="font-medium font-code">{skill.name}</h4>
-                      <span className={`text-sm font-medium font-code ${getExpertiseColor(skill.expertise)}`}>
+                      <span
+                        className={`text-sm font-medium font-code ${getExpertiseColor(
+                          skill.expertise
+                        )}`}
+                      >
                         {skill.expertise}
                       </span>
                     </div>
-                    <Progress 
-                      value={skill.level} 
-                      className="h-2"
-                    />
+                    <Progress value={skill.level} className="h-2" />
                   </div>
                 ))}
               </CardContent>

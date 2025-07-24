@@ -1,20 +1,18 @@
-import { GraduationCap, Calendar } from 'lucide-react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { GraduationCap, Calendar } from "lucide-react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 const Education = () => {
   const education = [
     {
-      degree: 'Bachelor of Computer Science🎓',
-      institution: 'University of Central Punjab - Pakistan',
-      period: '2016 - 2020',
-      icon: '🎓'
+      degree: "Masters in Computer Science 🎓",
+      institution: "Virtual University of Pakistan",
+      period: "2022 - 2024",
+      details: [
+        "Built a solid foundation in programming, data structures, OOP, and database management.",
+        "Gained practical coding skills through academic projects, focusing on web and mobile development basics.",
+        "Developed a problem-solving mindset and adaptability to new technologies.",
+      ],
     },
-    {
-      degree: 'Higher Secondary🧪',
-      institution: 'CBSE - Bengaluru',
-      period: '2014 - 2016',
-      icon: '🧪'
-    }
   ];
 
   return (
@@ -31,25 +29,30 @@ const Education = () => {
         </div>
 
         {/* Education Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        <div className="grid grid-cols-1 max-w-4xl mx-auto">
           {education.map((edu, index) => (
-            <Card key={index} className="hover-glow text-center">
+            <Card key={index} className="hover-glow text-center px-8 py-8">
               <CardHeader>
                 <div className="text-6xl mb-4">
                   <GraduationCap className="h-16 w-16 mx-auto text-primary" />
                 </div>
-                <CardTitle className="text-xl font-code">
+                <CardTitle className="text-2xl font-code">
                   {edu.degree}
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <h3 className="text-lg font-semibold text-primary mb-2 font-code">
+                <h3 className="text-xl font-semibold text-primary mb-4 font-code">
                   {edu.institution}
                 </h3>
-                <div className="flex items-center justify-center text-muted-foreground font-code">
+                <div className="flex items-center justify-center text-muted-foreground font-code mb-4">
                   <Calendar className="h-4 w-4 mr-2" />
-                  <span>{edu.period}</span>
+                  <span className="text-lg">{edu.period}</span>
                 </div>
+                <ul className="text-left text-muted-foreground text-base font-code space-y-2">
+                  {edu.details.map((detail, i) => (
+                    <li key={i}>• {detail}</li>
+                  ))}
+                </ul>
               </CardContent>
             </Card>
           ))}
