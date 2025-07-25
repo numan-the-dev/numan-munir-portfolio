@@ -92,7 +92,7 @@ const Hero = () => {
       {/* Scroll Down Indicator */}
       <button
         onClick={scrollToNext}
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce cursor-pointer"
+        className="absolute bottom-8 transform -translate-x-1/2 animate-bounce cursor-pointer"
       >
         <div className="flex flex-col items-center space-y-2 text-muted-foreground hover:text-primary transition-colors font-code">
           <span className="text-sm">Scroll Down</span>
