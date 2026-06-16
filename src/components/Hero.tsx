@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { ChevronDown, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import profilePhoto from "@/assets/profile-photo.jpeg";
+import profilePhoto from "@/assets/profile-photo.png.asset.json";
 
 const Hero = () => {
   const [isAnimating, setIsAnimating] = useState(false);
