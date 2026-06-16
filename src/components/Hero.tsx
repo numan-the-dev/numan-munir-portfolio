@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { ChevronDown, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import profilePhoto from "@/assets/profile-photo.jpeg";
+import profilePhoto from "@/assets/profile-photo.png.asset.json";
 
 const Hero = () => {
   const [isAnimating, setIsAnimating] = useState(false);
@@ -77,7 +77,7 @@ const Hero = () => {
           <div className="relative">
             <div className="w-80 h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden border-4 border-primary/20 hover-glow floating">
               <img
-                src={profilePhoto}
+                src={profilePhoto.url}
                 alt="Numan Munir"
                 className="w-full h-full object-cover"
               />
