@@ -4,7 +4,6 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 
 // Import project images
-import smileDentalCover from "@/assets/www.smile.com.au_.png";
 import zuraAphroZodiac from "@/assets/aphrozodiac.co_pages_zuraapp_srsltid=AfmBOorScu110CkhMwTNpYL21e4yEU3XV8PUpYUT-B14DIXswloMwIMM.png";
 import fansaway from "@/assets/fansaway-C8VeM6ya.png";
 import carswitch from "@/assets/carswitch-logo-D9xeeaBS.png";
@@ -18,15 +17,6 @@ const Projects = () => {
   const [activeFilter, setActiveFilter] = useState("All");
 
   const projects = [
-    {
-      id: 1,
-      title: "Smile Dental Cover",
-      category: "Mobile App",
-      type: "App",
-      image: smileDentalCover,
-      link: "https://play.google.com/store/apps/details?id=com.smile.members&hl=en",
-      description: "Dental insurance mobile app",
-    },
     {
       id: 2,
       title: "Zura AphroZodiac",
